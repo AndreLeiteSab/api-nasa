@@ -1,16 +1,13 @@
 import { CATALOG } from '../services/endpoints'
 
-// Left navigation: lists every NASA service. Selecting one updates the
-// active service in the parent App.
+// Navegação lateral: lista todos os serviços da NASA. Selecionar um atualiza o
+// serviço ativo no App pai.
 export default function Sidebar({ activeId, onSelect }) {
   return (
     <aside className="sidebar">
       <div className="brand">
-        <span className="brand-rocket">🚀</span>
-        <div>
-          <h1>NASA Explorer</h1>
-          <small>Gateway FastAPI</small>
-        </div>
+        <h1>NASA Explorer</h1>
+        <small>Gateway FastAPI</small>
       </div>
       <nav>
         {CATALOG.map((service) => (

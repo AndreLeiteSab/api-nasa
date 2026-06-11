@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-// Renders a form for a single endpoint based on its `fields` declaration and
-// invokes onSubmit(params) when the user runs the query.
+// Renderiza um formulário para um único endpoint a partir da declaração de
+// `fields` e chama onSubmit(params) quando o usuário executa a consulta.
 export default function EndpointForm({ endpoint, loading, onSubmit }) {
   const initial = Object.fromEntries(
     endpoint.fields.map((f) => [f.name, f.default ?? '']),

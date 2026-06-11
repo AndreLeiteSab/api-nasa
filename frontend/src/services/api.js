@@ -1,11 +1,11 @@
-// Thin client for the FastAPI gateway. All NASA traffic goes through it —
-// the frontend never talks to api.nasa.gov directly.
+// Cliente fino do gateway FastAPI. Todo o tráfego da NASA passa por ele —
+// o frontend nunca fala direto com api.nasa.gov.
 
 const API_BASE = import.meta.env.VITE_API_BASE || ''
 const PREFIX = '/api/v1'
 
 /**
- * Build a query string from a params object, dropping empty values.
+ * Monta uma query string a partir de um objeto de params, descartando valores vazios.
  */
 function buildQuery(params = {}) {
   const search = new URLSearchParams()
@@ -19,8 +19,8 @@ function buildQuery(params = {}) {
 }
 
 /**
- * Resolve a path template like "/mars-rover/rovers/{rover}/photos" using the
- * provided params, returning the final path and the params not consumed by it.
+ * Resolve um template de caminho como "/epic/{collection}/date/{date}" usando os
+ * params informados, retornando o caminho final e os params que não foram usados.
  */
 function resolvePath(template, params) {
   const remaining = { ...params }
@@ -33,8 +33,8 @@ function resolvePath(template, params) {
 }
 
 /**
- * Call a gateway endpoint. Returns parsed JSON, or for binary endpoints an
- * object describing the blob URL so the UI can render an image.
+ * Chama um endpoint do gateway. Retorna o JSON já parseado ou, para endpoints
+ * binários, um objeto descrevendo a URL do blob para a UI renderizar a imagem.
  */
 export async function callEndpoint(template, params = {}, { binary = false } = {}) {
   const { path, remaining } = resolvePath(template, params)
