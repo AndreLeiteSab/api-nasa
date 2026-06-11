@@ -40,9 +40,19 @@ Todas as rotas ficam sob o prefixo `/api/v1`.
 ```bash
 curl "http://127.0.0.1:8000/api/v1/apod"
 curl "http://127.0.0.1:8000/api/v1/neows/feed?start_date=2024-01-01&end_date=2024-01-02"
-curl "http://127.0.0.1:8000/api/v1/mars-rover/rovers/curiosity/photos?sol=1000&camera=NAVCAM"
+curl "http://127.0.0.1:8000/api/v1/epic/natural"
 curl "http://127.0.0.1:8000/api/v1/eonet/events?status=open&limit=5"
+
+# Novos serviços (completam as 16 APIs exigidas)
+curl "http://127.0.0.1:8000/api/v1/gibs/layers"
+curl "http://127.0.0.1:8000/api/v1/osdr/search?term=space&size=5"
+curl "http://127.0.0.1:8000/api/v1/ssc/observatories"
+curl "http://127.0.0.1:8000/api/v1/techport/projects?updatedSince=2024-01-01"
+curl "http://127.0.0.1:8000/api/v1/trek/mars/search?rows=5"
 ```
+
+> Endpoints binários (imagens) e XML: `/gibs/tile/2/1/2`,
+> `/trek/moon/tile/0/0/0`, `/gibs/capabilities`, `/trek/mars/capabilities`.
 
 ## Testes
 
