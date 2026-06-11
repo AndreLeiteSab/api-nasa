@@ -1,8 +1,8 @@
 """DONKI — Space Weather Database Of Notifications, Knowledge, Information.
 
-Every DONKI sub-resource shares the same ``startDate`` / ``endDate`` filtering
-pattern, so they are generated from a small table to keep the module DRY while
-still exposing one explicit, documented endpoint per resource.
+Todos os sub-recursos do DONKI compartilham o mesmo filtro por ``startDate`` /
+``endDate``, então são gerados a partir de uma pequena tabela para evitar
+repetição (DRY), mantendo ainda um endpoint explícito e documentado por recurso.
 """
 
 from typing import Any
@@ -18,7 +18,7 @@ _BASE = f"{settings.nasa_base_url}/DONKI"
 
 
 async def _date_ranged(resource: str, start_date: str | None, end_date: str | None) -> Any:
-    """Helper for the many DONKI endpoints that only filter by date range."""
+    """auxiliar para os vários endpoints do DONKI que só filtram por intervalo de datas"""
     return await fetch_json(
         f"{_BASE}/{resource}",
         {"startDate": start_date, "endDate": end_date},

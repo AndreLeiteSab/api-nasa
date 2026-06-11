@@ -1,37 +1,45 @@
-"""Routers package — one module per NASA service.
+"""Pacote de routers — um módulo por serviço da NASA.
 
-``all_routers`` is the single list the application includes, so adding a new
-service only requires creating the module and appending its router here.
+``all_routers`` é a única lista que a aplicação inclui, então adicionar um novo
+serviço só exige criar o módulo e acrescentar o router dele aqui. A ordem abaixo
+segue os 16 serviços exigidos no trabalho (e, portanto, a ordem mostrada no
+Swagger e na barra lateral do frontend).
 """
 
 from app.routers import (
     apod,
     donki,
-    earth,
     eonet,
     epic,
     exoplanet,
+    gibs,
     image_library,
     insight,
-    mars_rover,
     neows,
+    osdr,
+    ssc,
     ssd,
+    techport,
     techtransfer,
     tle,
+    trek,
 )
 
 all_routers = [
     apod.router,
     neows.router,
     donki.router,
-    earth.router,
     eonet.router,
     epic.router,
-    mars_rover.router,
-    image_library.router,
-    techtransfer.router,
-    insight.router,
     exoplanet.router,
-    tle.router,
+    gibs.router,
+    insight.router,
+    image_library.router,
+    osdr.router,
+    ssc.router,
     ssd.router,
+    techport.router,
+    techtransfer.router,
+    tle.router,
+    trek.router,
 ]

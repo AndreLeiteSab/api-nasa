@@ -1,4 +1,4 @@
-"""TechTransfer — NASA patents, software and spinoff technologies."""
+"""TechTransfer — patentes, software e tecnologias spinoff da NASA."""
 
 from typing import Any
 
@@ -16,7 +16,7 @@ _BASE = f"{settings.nasa_base_url}/techtransfer"
 async def get_patents(
     query: str | None = Query(None, description="Termo de busca (ex.: engine)."),
 ) -> Any:
-    # The upstream uses the search term as a bare query key, e.g. ?engine
+    # a NASA usa o termo de busca como chave de query "pura", ex.: ?engine
     params = {query: ""} if query else None
     return await fetch_json(f"{_BASE}/patent/", params)
 

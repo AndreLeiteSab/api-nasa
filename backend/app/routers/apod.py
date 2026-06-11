@@ -1,4 +1,4 @@
-"""APOD — Astronomy Picture of the Day."""
+"""APOD — Imagem Astronômica do Dia (Astronomy Picture of the Day)."""
 
 from typing import Any
 
@@ -20,7 +20,7 @@ async def get_apod(
     count: int | None = Query(None, description="Quantidade de imagens aleatórias."),
     thumbs: bool | None = Query(None, description="Retornar thumbnail de vídeos."),
 ) -> Any:
-    """Return the Astronomy Picture of the Day (or a range / random set)."""
+    """retorna a imagem astronômica do dia (ou um intervalo / conjunto aleatório)"""
     return await fetch_json(
         _URL,
         {

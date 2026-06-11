@@ -1,4 +1,4 @@
-"""SSD/CNEOS — JPL Solar System Dynamics & Center for NEO Studies (no API key)."""
+"""SSD/CNEOS — JPL Solar System Dynamics & Center for NEO Studies (sem API key)."""
 
 from typing import Any
 

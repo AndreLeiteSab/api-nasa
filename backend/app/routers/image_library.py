@@ -1,4 +1,4 @@
-"""NASA Image and Video Library (images-api.nasa.gov) — no API key required."""
+"""Biblioteca de Imagens e Vídeos da NASA (images-api.nasa.gov) — sem API key."""
 
 from typing import Any
 
@@ -28,7 +28,7 @@ async def search(
     year_start: str | None = Query(None, description="Ano inicial (YYYY)."),
     year_end: str | None = Query(None, description="Ano final (YYYY)."),
 ) -> Any:
-    """Full-text search across the NASA media library."""
+    """busca em texto completo na biblioteca de mídia da NASA"""
     return await fetch_json(
         f"{_BASE}/search",
         {

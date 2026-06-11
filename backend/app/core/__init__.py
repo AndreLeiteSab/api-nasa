@@ -1,1 +1,1 @@
-"""Core infrastructure: HTTP client, configuration helpers and error handling."""
+"""Infraestrutura base: cliente HTTP, utilitários de configuração e tratamento de erros."""

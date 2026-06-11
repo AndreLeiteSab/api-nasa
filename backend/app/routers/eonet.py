@@ -1,6 +1,6 @@
 """EONET — Earth Observatory Natural Event Tracker.
 
-EONET lives on its own host and does NOT require an API key.
+O EONET fica em um host próprio e NÃO exige API key.
 """
 
 from typing import Any
@@ -29,7 +29,7 @@ async def get_events(
     mag_max: float | None = Query(None, alias="magMax"),
     bbox: str | None = Query(None, description="Caixa delimitadora geográfica."),
 ) -> Any:
-    """List natural events tracked by EONET."""
+    """lista os eventos naturais rastreados pelo EONET"""
     return await fetch_json(
         f"{_BASE}/events",
         {

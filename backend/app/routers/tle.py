@@ -1,4 +1,4 @@
-"""TLE — Two-Line Element sets for Earth-orbiting satellites (no API key)."""
+"""TLE — conjuntos Two-Line Element de satélites em órbita da Terra (sem API key)."""
 
 from typing import Any
 

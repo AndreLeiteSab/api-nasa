@@ -1,4 +1,4 @@
-"""InSight — Mars Weather Service (legacy; data may be empty as the mission ended)."""
+"""InSight — serviço de clima de Marte (legado; pode vir vazio, pois a missão acabou)."""
 
 from typing import Any
 
@@ -17,5 +17,5 @@ async def get_weather(
     ver: str = Query("1.0", description="Versão da API."),
     feedtype: str = Query("json", description="Formato do feed."),
 ) -> Any:
-    """Latest available Martian weather from the InSight lander."""
+    """clima marciano mais recente disponível do módulo InSight"""
     return await fetch_json(_URL, {"ver": ver, "feedtype": feedtype})

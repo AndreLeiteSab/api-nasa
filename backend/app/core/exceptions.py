@@ -1,7 +1,7 @@
-"""Custom exceptions and centralized error handling for the gateway.
+"""Exceções personalizadas e tratamento centralizado de erros do gateway.
 
-Errors coming from the upstream NASA APIs are normalized into a consistent JSON
-shape so the frontend always receives a predictable payload.
+Os erros vindos das APIs da NASA são padronizados em um formato JSON consistente
+para que o frontend sempre receba uma resposta previsível.
 """
 
 from fastapi import FastAPI, Request, status
@@ -9,12 +9,12 @@ from fastapi.responses import JSONResponse
 
 
 class NasaAPIError(Exception):
-    """Raised when an upstream NASA service returns an error or is unreachable.
+    """Lançada quando um serviço da NASA retorna erro ou está inacessível.
 
-    Attributes:
-        message: Human-readable description of what went wrong.
-        status_code: HTTP status code to return to the client.
-        upstream: Optional raw payload returned by the upstream service.
+    Atributos:
+        message: Descrição legível do que deu errado.
+        status_code: Código HTTP a devolver para o cliente.
+        upstream: Resposta original do serviço da NASA (opcional).
     """
 
     def __init__(
@@ -30,7 +30,7 @@ class NasaAPIError(Exception):
 
 
 def _error_payload(message: str, status_code: int, upstream: object | None = None) -> dict:
-    """Build the standardized error response body."""
+    """monta o corpo padronizado da resposta de erro"""
     body: dict = {
         "error": True,
         "status_code": status_code,
@@ -42,7 +42,7 @@ def _error_payload(message: str, status_code: int, upstream: object | None = Non
 
 
 def register_exception_handlers(app: FastAPI) -> None:
-    """Attach the gateway's exception handlers to the FastAPI app."""
+    """registra os tratadores de exceção do gateway na aplicação FastAPI"""
 
     @app.exception_handler(NasaAPIError)
     async def nasa_api_error_handler(_: Request, exc: NasaAPIError) -> JSONResponse:
@@ -53,7 +53,7 @@ def register_exception_handlers(app: FastAPI) -> None:
 
     @app.exception_handler(Exception)
     async def unhandled_exception_handler(_: Request, exc: Exception) -> JSONResponse:
-        # Last-resort safety net so we never leak stack traces to the client.
+        # rede de segurança final para nunca vazar stack traces ao cliente
         return JSONResponse(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             content=_error_payload(
