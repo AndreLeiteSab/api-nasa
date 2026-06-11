@@ -40,4 +40,5 @@ cd frontend && npm run dev
 - Rotas sob `/api/v1`, uma tag/Swagger por serviço.
 - Erros sempre no formato `{ "error": true, "status_code", "message" }`.
 - Parâmetros opcionais com valor `None` são removidos antes de chamar a NASA.
-- Comentários e docstrings de código em inglês; UI e docs em pt-BR.
+- Comentários e docstrings de código em pt-BR; termos técnicos (endpoint, query,
+  proxy, gateway, rate limit, timeout, WMTS, etc.) mantidos em inglês. UI e docs em pt-BR.
